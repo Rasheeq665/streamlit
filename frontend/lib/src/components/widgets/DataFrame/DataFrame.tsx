@@ -47,7 +47,7 @@ import {
   Visibility,
 } from "@emotion-icons/material-outlined"
 
-import { Arrow as ArrowProto } from "@streamlit/protobuf"
+import { Arrow as ArrowProto, streamlit } from "@streamlit/protobuf"
 
 import { useFormClearHelper } from "~lib/components/widgets/Form"
 import { withFullScreenWrapper } from "~lib/components/shared/FullScreenWrapper"
@@ -119,6 +119,7 @@ export interface DataFrameProps {
   disableFullscreenMode?: boolean
   fragmentId?: string
   height?: number
+  widthConfig?: streamlit.IWidthConfig | null
 }
 
 /**
@@ -136,6 +137,7 @@ function DataFrame({
   widgetMgr,
   disableFullscreenMode,
   fragmentId,
+  widthConfig,
 }: Readonly<DataFrameProps>): ReactElement {
   const {
     expanded: isFullScreen,
@@ -613,7 +615,8 @@ function DataFrame({
     usesGroupRow,
     containerWidth || 0,
     containerHeight,
-    isFullScreen
+    isFullScreen,
+    widthConfig
   )
 
   // This is used as fallback in case the table is empty to
