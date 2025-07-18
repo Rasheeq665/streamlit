@@ -56,19 +56,13 @@ export const StyledElementContainerLayoutWrapper: FC<
       }
     } else if (
       node.element.type === "iframe" ||
-      node.element.type === "deckGlJsonChart"
+      node.element.type === "deckGlJsonChart" ||
+      node.element.type === "arrowDataFrame"
     ) {
       // TODO(lwilby): Some elements need overflow to be visible in webkit. Will investigate
       // if we can remove this custom handling in future layouts work.
       return {
         overflow: "visible",
-      }
-    } else if (node.element.type === "arrowDataFrame") {
-      // Dataframes handle their dimensions in the DataFrame component.
-      // Overflow needs to be visible to allow the full screen button to be visible.
-      return {
-        overflow: "visible",
-        width: "100%",
       }
     }
 

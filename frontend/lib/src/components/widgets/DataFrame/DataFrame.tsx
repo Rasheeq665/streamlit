@@ -261,7 +261,7 @@ function DataFrame({
     columns: originalColumns,
     allColumns,
     setColumnConfigMapping,
-  } = useColumnLoader(element, data, disabled, columnOrder)
+  } = useColumnLoader(element, data, disabled, columnOrder, widthConfig)
 
   /**
    * On the first rendering, try to load initial widget state if
@@ -869,7 +869,7 @@ function DataFrame({
         minHeight={minHeight}
         maxHeight={maxHeight}
         minWidth={minWidth}
-        maxWidth={maxWidth}
+        maxWidth={undefined}
         size={resizableSize}
         enable={{
           top: false,
