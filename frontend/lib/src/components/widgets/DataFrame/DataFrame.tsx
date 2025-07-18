@@ -606,7 +606,6 @@ function DataFrame({
     minHeight,
     maxHeight,
     minWidth,
-    maxWidth,
     rowHeight,
     resizableSize,
     setResizableSize,
@@ -869,6 +868,10 @@ function DataFrame({
         minHeight={minHeight}
         maxHeight={maxHeight}
         minWidth={minWidth}
+        // maxWidth causes issues with incorrect sizing
+        // now that there are more layout options like horizontal
+        // containers. The tradeoff here is that users can manually expand
+        // the dataframe beyond the container.
         maxWidth={undefined}
         size={resizableSize}
         enable={{
