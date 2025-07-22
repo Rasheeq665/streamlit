@@ -27,7 +27,6 @@ import { getElementId, notNullOrUndefined } from "~lib/util/utils"
 import { ScriptRunState } from "~lib/ScriptRunState"
 import {
   Direction,
-  getAncestorContainerDirection,
   getDirectionOfBlock,
 } from "~lib/components/core/Layout/utils"
 import Form from "~lib/components/widgets/Form"
@@ -170,8 +169,6 @@ interface FlexBoxContainerProps extends BaseBlockProps {
 export const FlexBoxContainer = (
   props: FlexBoxContainerProps
 ): ReactElement => {
-  const flexContext = useContext(FlexContext)
-  const ancestorContainerDirection = getAncestorContainerDirection(flexContext)
   const direction = getDirectionOfBlock(props.node.deltaBlock)
 
   const activateScrollToBottom = getActivateScrollToBottomBackwardsCompatible(
