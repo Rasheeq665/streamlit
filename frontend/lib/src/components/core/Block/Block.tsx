@@ -39,10 +39,7 @@ import { useRequiredContext } from "~lib/hooks/useRequiredContext"
 import { useScrollToBottom } from "~lib/hooks/useScrollToBottom"
 import { useLayoutStyles } from "~lib/components/core/Layout/useLayoutStyles"
 import { useEmotionTheme } from "~lib/hooks/useEmotionTheme"
-import {
-  FlexContext,
-  FlexContextProvider,
-} from "~lib/components/core/Layout/FlexContext"
+import { FlexContextProvider } from "~lib/components/core/Layout/FlexContext"
 
 import {
   assignDividerColor,
