@@ -500,6 +500,7 @@ class ContainerTest(DeltaGeneratorTestCase):
         """Test that invalid height values raise an error"""
         with pytest.raises(StreamlitAPIException):
             st.container(height=invalid_height)
+
     @parameterized.expand(
         [
             ("vertical", BlockProto.FlexContainer.Direction.VERTICAL),
