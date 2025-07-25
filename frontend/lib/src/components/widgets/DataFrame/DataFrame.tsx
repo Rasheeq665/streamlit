@@ -147,9 +147,7 @@ function DataFrame({
     height: containerHeight,
   } = useRequiredContext(ElementFullscreenContext)
 
-  const flexContext = useRequiredContext(FlexContext)
-  const isInHorizontalContainer =
-    flexContext.direction === Direction.HORIZONTAL
+  const { isInHorizontalLayout } = useRequiredContext(FlexContext)
 
   const resizableRef = useRef<Resizable>(null)
   const dataEditorRef = useRef<DataEditorRef>(null)
@@ -869,7 +867,7 @@ function DataFrame({
         minHeight={minHeight}
         maxHeight={maxHeight}
         minWidth={minWidth}
-        maxWidth={isInHorizontalContainer ? undefined : maxWidth}
+        maxWidth={isInHorizontalLayout ? undefined : maxWidth}
         size={resizableSize}
         enable={{
           top: false,
@@ -877,7 +875,7 @@ function DataFrame({
           bottom: false,
           left: false,
           topRight: false,
-          bottomRight: isInHorizontalContainer ? false : true,
+          bottomRight: isInHorizontalLayout ? false : true,
           bottomLeft: false,
           topLeft: false,
         }}
