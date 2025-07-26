@@ -56,13 +56,21 @@ export const StyledElementContainerLayoutWrapper: FC<
       }
     } else if (
       node.element.type === "iframe" ||
-      node.element.type === "deckGlJsonChart" ||
-      node.element.type === "arrowDataFrame"
+      node.element.type === "deckGlJsonChart"
     ) {
       // TODO(lwilby): Some elements need overflow to be visible in webkit. Will investigate
       // if we can remove this custom handling in future layouts work.
       return {
         overflow: "visible",
+      }
+    } else if (node.element.type === "arrowDataFrame") {
+      // Dataframe has some internal calculations that determines the width
+      // and also prevents the user from dragging the corner beyond the container
+      // width. The default styles for different widths on the element container
+      // interfere so we need this override.
+      return {
+        overflow: "visible",
+        width: "auto",
       }
     }
 
