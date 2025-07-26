@@ -64,14 +64,16 @@ export const StyledElementContainerLayoutWrapper: FC<
         overflow: "visible",
       }
     } else if (node.element.type === "arrowDataFrame") {
-      // Dataframe has some internal calculations that determines the width
-      // and also prevents the user from dragging the corner beyond the container
-      // width. The default styles for different widths on the element container
-      // interfere so we need this override.
-      return {
+      // Dataframe has some internal calculations that determine the width
+      // in content mode. The default style of fit-content interferes and
+      // must be overridden.
+      let styles: React.CSSProperties = {
         overflow: "visible",
-        width: "auto",
       }
+      if (node.element.widthConfig?.useContent) {
+        styles.width = "auto"
+      }
+      return styles
     }
 
     return {}
